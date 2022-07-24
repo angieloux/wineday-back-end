@@ -1,4 +1,4 @@
-Rspec.configure do |config|
+RSpec.configure do |config|
 
     # Before running the whole suite of tests, run DatabaseCleaner with truncation.
     config.before(:suite) do 
