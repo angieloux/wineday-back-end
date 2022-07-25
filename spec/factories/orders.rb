@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :order do
-    number { 1 }
+    number { 12345 }
     total { "9.99" }
-    user_id { 1 }
+    association :user
 
   end
 end

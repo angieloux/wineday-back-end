@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "Products", type: :request do
-  describe "GET /products" do
-    before(:each) do
-      @product = create(:product)
+RSpec.describe "Orders", type: :request do
+  describe "GET /orders" do
+
+    before(:all) do 
+      create(:order)
     end
-    
+
     before(:each) do
       ## Test the response to the get request
-      get '/products' 
+      get '/orders' 
 
     end
 
@@ -21,7 +22,8 @@ RSpec.describe "Products", type: :request do
     end
 
     it "should include the right content" do 
-      expect(response.body).to include('Black Hawk')
+      expect(response.body).to include('12345')
     end
+    
   end
 end
