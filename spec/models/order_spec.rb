@@ -3,11 +3,14 @@ require 'rails_helper'
 RSpec.describe Order, type: :model do
   context "factory" do
     before(:all) do 
-      @order = build(:order)
+      ## Need to build a user because of the belongs_to association
+      @user = build(:user)
+      @order = build(:order, user: @user)
     end
 
     # if update model without updating factory, you'll know about it because of this test
     it "has a valid factory" do
+      @user = build(:user)
       expect(@order).to be_valid
     end
 
@@ -16,4 +19,12 @@ RSpec.describe Order, type: :model do
     end
   end
 
+  # it "should belong to a user" do 
+  #   t = Order.reflect_on_association(:user)
+  #   expect(t.macro).to eq(:belongs_to)
+  # end
+
+  context "associations" do 
+    it { should belong_to(:user) }
+  end
 end
