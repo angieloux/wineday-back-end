@@ -1,11 +1,7 @@
 GET http://localhost:3000/products
 
-
 ### 
-
-
 GET http://localhost:3000/orders
-
 
 ### 
 # Post with valid ID
@@ -15,3 +11,75 @@ GET http://localhost:3000/products/1
 ### 
 # Post with invalid ID
 GET http://localhost:3000/products/239042934023
+
+###
+## Login with valid email and password
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "auth": {
+    "login": "a@a.com",
+    "password": "password"
+    }
+}
+###
+## Login with invalid email or password
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "auth": {
+    "login": "a@a.com",
+    "password": "pas22sword"
+    }
+}
+
+
+### 
+## Register with a valid details
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "email": "newsudser@gmail.com",
+    "username": "NeswUfser",
+    "password": "password",
+    "password_confirmation": "password"
+}
+
+### 
+## Register with a invalid details
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "email": "a@a.com",
+    "username": "NewUser",
+    "password": "password",
+    "password_confirmation": "password"
+}
+###
+ # Create an order with JWT
+POST http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTg5MTg5MTZ9.Ygrv0nAa9HxoTr81F4STPYESUeYW-KHfcgl2iOo7wHY
+
+    {
+      "number": 123,
+      "user_id": 1,
+      "total": 99.99
+    }
+
+### 
+# Create an order without JWT
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+    {
+      "number": 123,
+      "user_id": 1,
+      "total": 99.99
+    }
+ 
+
