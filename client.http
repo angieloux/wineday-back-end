@@ -1,0 +1,17 @@
+GET http://localhost:3000/products
+
+
+### 
+
+
+GET http://localhost:3000/orders
+
+
+### 
+# Post with valid ID
+GET http://localhost:3000/products/1
+
+
+### 
+# Post with invalid ID
+GET http://localhost:3000/products/239042934023
