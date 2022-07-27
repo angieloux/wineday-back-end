@@ -19,7 +19,7 @@ Content-Type: application/json
 
 {
     "auth": {
-    "email": "a@a.com",
+    "login": "a@a.com",
     "password": "password"
     }
 }
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 {
     "auth": {
-    "email": "a@a.com",
+    "login": "a@a.com",
     "password": "pas22sword"
     }
 }
@@ -42,8 +42,8 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "email": "newuser@gmail.com",
-    "username": "NewUser",
+    "email": "newsudser@gmail.com",
+    "username": "NeswUfser",
     "password": "password",
     "password_confirmation": "password"
 }
@@ -59,3 +59,27 @@ Content-Type: application/json
     "password": "password",
     "password_confirmation": "password"
 }
+###
+ # Create an order with JWT
+POST http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTg5MTg5MTZ9.Ygrv0nAa9HxoTr81F4STPYESUeYW-KHfcgl2iOo7wHY
+
+    {
+      "number": 123,
+      "user_id": 1,
+      "total": 99.99
+    }
+
+### 
+# Create an order without JWT
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+    {
+      "number": 123,
+      "user_id": 1,
+      "total": 99.99
+    }
+ 
+

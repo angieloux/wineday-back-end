@@ -1,14 +1,12 @@
 class AuthController < ApplicationController
   def login
-    ## check if the user exists by searching email
-    user = User.find_by(email: auth_params[:email])
-    ## if there is, authenticate the password
+    user = User.login(auth_params[:login]).first
+    ## if there is a user with the email/username entered, authenticate the password
     ## ('authenticate' comes from has_secure_password method)
     ## shorthand syntax instead of user && user.authenticate
     if user&.authenticate(auth_params[:password])
       ## what to include in JWT token
-      payload = { user_id: user.id, exp: 1.hour.from_now.to_i }
-      token = JWT.encode(payload, Rails.application.credentials.dig(:secret_key_base))
+      token = JwtService.encode(user)
       render json: { jwt: token, username: user.username }
     else
       render json: { error: "Incorrect email or password." }, status: 422
@@ -18,8 +16,7 @@ class AuthController < ApplicationController
   def register
     user = User.create(auth_params)
     unless user.errors.any?
-      payload = { user_id: user.id, exp: 1.hour.from_now.to_i }
-      token = JWT.encode(payload, Rails.application.credentials.dig(:secret_key_base))
+      token = JwtService.encode(user)
       render json: { jwt: token, username: user.username }, status: 201
     else
       render json: { errors: user.errors.full_messages }, status: 422
@@ -29,6 +26,6 @@ class AuthController < ApplicationController
   private
 
   def auth_params
-    params.require(:auth).permit(:email, :password, :password_confirmation, :username)
+    params.require(:auth).permit(:email, :login, :password, :password_confirmation, :username)
   end
 end

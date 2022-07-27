@@ -7,7 +7,7 @@ RSpec.describe "Auths", type: :request do
     end
     context "with valid credentials" do
       before(:each) do
-        post "/auth/login", params: { auth: { email: "test@testing.com", password: "password1" } }
+        post "/auth/login", params: { auth: { login: "test@testing.com", password: "password1" } }
       end
 
       it "should return 200 ok status" do
@@ -22,7 +22,7 @@ RSpec.describe "Auths", type: :request do
 
     context "with invalid credentials" do
       before(:each) do
-        post "/auth/login", params: { auth: { email: "test@testing.com", password: "passworssssd1" } }
+        post "/auth/login", params: { auth: { login: "test@testing.com", password: "passworssssd1" } }
       end
 
       it "should return 422 ok status" do
