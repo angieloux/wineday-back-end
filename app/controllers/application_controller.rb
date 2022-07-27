@@ -21,7 +21,7 @@ class ApplicationController < ActionController::API
   end
 
   def extract_token_from_auth_headers
-    # If there is an Authorization header, split it and get the 2nd item
-    request.headers["Authorization"] && request.headers["Authorization"].split(" ")[1]
+    # If there is an Authorization header, split it and get the last one
+    request.headers["Authorization"]&.split(" ")&.last
   end
 end
