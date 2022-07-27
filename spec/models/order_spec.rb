@@ -1,9 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Order, type: :model do
   context "factory" do
-    before(:all) do 
-      ## Need to build a user because of the belongs_to association
+    before(:all) do
+      ## Need to build a user factory because of the belongs_to association
       @user = build(:user)
       @order = build(:order, user: @user)
     end
@@ -19,12 +19,12 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  # it "should belong to a user" do 
+  # it "should belong to a user" do
   #   t = Order.reflect_on_association(:user)
   #   expect(t.macro).to eq(:belongs_to)
   # end
 
-  context "associations" do 
+  context "associations" do
     it { should belong_to(:user) }
   end
 end

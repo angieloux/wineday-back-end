@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   get "/orders", to: "orders#index", as: "orders"
 
   get "/products/:id", to: "products#show", as: "product"
+
+  post "/auth/login", to: "auth#login", as: "login"
+
+  post "/auth/register", to: "auth#register", as: "register"
 end
