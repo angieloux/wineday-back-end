@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post "/auth/login", to: "auth#login", as: "login"
 
   post "/auth/register", to: "auth#register", as: "register"
+  
+  post '/auth/logged_in_user', to: 'auth#logged_in_user'
 end

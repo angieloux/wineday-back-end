@@ -35,6 +35,15 @@ Content-Type: application/json
     }
 }
 
+###
+## Retrieve user with existing Jwt
+POST http://localhost:3000/auth/logged_in_user
+Content-Type: application/json
+
+{    
+    "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTkxNTgzNDd9.mck-HwHj9MBihx-C3dnPmucglZ3tflNcwNKNc__nvS8"
+}
+
 
 ### 
 ## Register with a valid details

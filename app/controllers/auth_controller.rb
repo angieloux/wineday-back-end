@@ -23,9 +23,15 @@ class AuthController < ApplicationController
     end
   end
 
+  def logged_in_user
+    payload = JwtService.decode(auth_params[:jwt])
+    user = User.find(payload['user_id'])
+    render json: {username: user.username}    
+  end
+
   private
 
   def auth_params
-    params.require(:auth).permit(:email, :login, :password, :password_confirmation, :username)
+    params.require(:auth).permit(:auth, :email, :login, :password, :password_confirmation, :username, :jwt)
   end
 end
