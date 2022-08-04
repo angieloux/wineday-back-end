@@ -90,5 +90,11 @@ Content-Type: application/json
       "user_id": 1,
       "total": 99.99
     }
+
+### 
+# View orders
+GET http://localhost:3000/orders
+
+    
  
 
