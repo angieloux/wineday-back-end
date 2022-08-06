@@ -7,7 +7,7 @@ class AuthController < ApplicationController
     if user&.authenticate(auth_params[:password])
       ## what to include in JWT token
       token = JwtService.encode(user)
-      render json: { jwt: token, username: user.username }
+      render json: { jwt: token, username: user.username, id: user.id }
     else
       render json: { error: "Incorrect email or password." }, status: 422
     end
@@ -17,7 +17,7 @@ class AuthController < ApplicationController
     user = User.create(auth_params)
     unless user.errors.any?
       token = JwtService.encode(user)
-      render json: { jwt: token, username: user.username }, status: 201
+      render json: { jwt: token, username: user.username, id: user.id }, status: 201
     else
       render json: { errors: user.errors.full_messages }, status: 422
     end
@@ -26,12 +26,13 @@ class AuthController < ApplicationController
   def logged_in_user
     payload = JwtService.decode(auth_params[:jwt])
     user = User.find(payload['user_id'])
-    render json: {username: user.username}    
+    render json: {username: user.username, id: user.id}    
+    p current_user
   end
 
   private
 
   def auth_params
-    params.require(:auth).permit(:auth, :email, :login, :password, :password_confirmation, :username, :jwt)
+    params.require(:auth).permit(:auth, :email, :login, :password, :password_confirmation, :username, :jwt, :id)
   end
 end

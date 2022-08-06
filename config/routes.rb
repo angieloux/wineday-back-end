@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/products/:id", to: "products#show", as: "product"
   get "/orders", to: "orders#index", as: "orders"
 
-  post "/orders", to: "orders#create", as: "new_order"
+  post "/checkout", to: "orders#create", as: "new_order"
 
   
 

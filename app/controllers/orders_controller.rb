@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   def create
     order = current_user.orders.create(order_params)
     unless order.errors.any?
-      render json: order, include: { user: { only: :username } }, status: 201
+      render json: order, include: { user: { only: :id } }, status: 201
     else
       render json: { errors: order.errors.full_messages }, status: 422
     end
