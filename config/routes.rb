@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/orders", to: "orders#index", as: "orders"
 
   post "/checkout", to: "orders#create", as: "new_order"
-
+  post "/orders/:id", to: "orders#show", as: "order"
   
 
   post "/auth/login", to: "auth#login", as: "login"
