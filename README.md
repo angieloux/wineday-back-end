@@ -1,24 +1,7 @@
-# README
+# 👷 Currently WIP 👷
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- This is the back end for a wine ecommerce app I am building with Rails.
 
-Things you may want to cover:
+- The back end (build with React) can be found [here](https://github.com/angieloux/wineday-front-end)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- The docs are [here](https://github.com/angieloux/wineday-docs)
