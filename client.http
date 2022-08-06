@@ -70,7 +70,7 @@ Content-Type: application/json
 }
 ###
  # Create an order with JWT
-POST http://localhost:3000/orders
+POST http://localhost:3000/checkout
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTg5MTg5MTZ9.Ygrv0nAa9HxoTr81F4STPYESUeYW-KHfcgl2iOo7wHY
 
@@ -82,7 +82,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTg5MTg5M
 
 ### 
 # Create an order without JWT
-POST http://localhost:3000/orders
+POST http://localhost:3000/checkout
 Content-Type: application/json
 
     {
@@ -94,6 +94,10 @@ Content-Type: application/json
 ### 
 # View orders
 GET http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTk3NjgzNjB9.NxMSpOJ6Ycm3KDIN1gOWQtQhZgySDBiY2LSc3_XV35k
+
+
 
     
  
