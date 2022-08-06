@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :authenticate, only: [:create]
+  before_action :authenticate, only: [:index, :create]
 
   def index
     ## Eager load the users at the same time
-    orders = Order.all.includes(:user)
-    render json: orders, include: { user: { only: :username } }, status: 200
+    orders = current_user.orders.includes(:user)
+    render json: orders, include: { user: { only: :username }}, status: 200
   end
 
   def create
