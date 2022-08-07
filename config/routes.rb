@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   get "/products", to: "products#index", as: "products"
   get "/products/:id", to: "products#show", as: "product"
+  get "/products/high_scoring_wines", to: "products#top_rated", as: "top_rated"
   get "/orders", to: "orders#index", as: "orders"
 
   post "/checkout", to: "orders#create", as: "new_order"

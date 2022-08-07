@@ -5,4 +5,5 @@ class Product < ApplicationRecord
     validates :price, numericality: { greater_than_or_equal_to: 0, less_than: BigDecimal(10**3) }, format: { with: /\A\d{1,3}(\.\d{1,2})?\z/ }
     validates :points, numericality: { only_integer: true, greater_than: 0 }
 
+    scope :high_scoring, ->{where("points > ?", 94)}
 end

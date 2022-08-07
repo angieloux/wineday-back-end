@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
     render json: @product
   end
 
+  def top_rated
+    products = Product.high_scoring
+    render json: @products
+  end
+
   private
 
   def set_product
