@@ -4,8 +4,8 @@ This repo contains the back-end for a fictional wine e-commerce store built for 
 
 The other relavant repos can be found here:
 
-- [Frontend](https://github.com/angieloux/wineday-front-end) (created with Ruby on Rails, hosted on heroku)
-- [Planning documentation](https://github.com/angieloux/wineday-docs) (which can also be found at the bottom of this document, for reference).
+- [Frontend](https://github.com/angieloux/wineday-front-end) Created with React, hosted on Netlify [here](https://wineday.netlify.app/). The documentation is also included in this repo. 
+- [Planning documentation](https://github.com/angieloux/wineday-docs) 
 
 # Local installation
 
