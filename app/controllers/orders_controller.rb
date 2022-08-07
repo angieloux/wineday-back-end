@@ -13,7 +13,9 @@ class OrdersController < ApplicationController
   end
 
   def create
+    pp current_user
     order = current_user.orders.create(order_params)
+    pp order
     unless order.errors.any?
       render json: order, include: { user: { only: :id } }, status: 201
     else
@@ -32,6 +34,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:user_id, :number, :total)
+    params.require(:order).permit(:user_id, :total, :id)
   end
 end
