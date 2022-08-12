@@ -333,13 +333,13 @@ end
 puts 'added products'
 
 if Order.count == 0 
-    Order.create(number: 10104, user_id: 1, total: 20)
-    Order.create(number: 00004, user_id: 2, total: 60)
-    Order.create(number: 33304, user_id: 3, total: 100)
-    Order.create(number: 22104, 
+    Order.create(user_id: 1, total: 20)
+    Order.create(user_id: 2, total: 60)
+    Order.create(user_id: 3, total: 100)
+    Order.create( 
     user_id: 3, total: 200)
-    Order.create(number: 29304, user_id: 4, total: 40)
-    Order.create(number: 55000, user_id: 4, total: 40)
+    Order.create(user_id: 4, total: 40)
+    Order.create(user_id: 4, total: 40)
 
 end
 
